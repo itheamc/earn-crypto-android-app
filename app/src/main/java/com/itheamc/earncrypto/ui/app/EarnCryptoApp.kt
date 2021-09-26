@@ -3,7 +3,7 @@ package com.itheamc.earncrypto.ui.app
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -58,9 +58,9 @@ fun EarnCryptoApp(viewModel: EarnCryptoViewModel) {
             floatingActionButton = {
                 FloatingActionButton(
                     backgroundColor = MaterialTheme.colors.surface,
-                    onClick = { navController.navigate("Search") }
+                    onClick = { navController.navigate("Favourite") }
                 ) {
-                    Icon(imageVector = Icons.Filled.Search, contentDescription = "Search")
+                    Icon(imageVector = Icons.Filled.Favorite, contentDescription = "Favourite")
                 }
             },
             floatingActionButtonPosition = FabPosition.End,
@@ -73,7 +73,7 @@ fun EarnCryptoApp(viewModel: EarnCryptoViewModel) {
                 scaffoldState = scaffoldState,
                 drawerState = bottomDrawerState,
                 navController = navController,
-                startDestination = Screens.Games.name,
+                startDestination = Screens.Apps.name,
                 viewModel = viewModel
             )
         }

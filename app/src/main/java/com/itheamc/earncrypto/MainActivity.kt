@@ -14,8 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import coil.annotation.ExperimentalCoilApi
+import com.itheamc.earncrypto.model.CryptoApp
 import com.itheamc.earncrypto.ui.app.EarnCryptoApp
 import com.itheamc.earncrypto.ui.theme.EarnCryptoTheme
+import com.itheamc.earncrypto.ui.views.AppItemView
 import com.itheamc.earncrypto.viewmodel.EarnCryptoViewModel
 
 @ExperimentalMaterialApi
@@ -31,26 +34,24 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(text = "Hello $name")
-        IconButton(onClick = { /*TODO*/ }) {
-            Icon(imageVector = Icons.Filled.Games, contentDescription = "")
-        }
 
-
-    }
-}
-
+@ExperimentalMaterialApi
+@ExperimentalCoilApi
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
+    val app = CryptoApp(
+        id = 1,
+        name = "Cloud Earning PHT",
+        tagLine = "Mine crypto on your mobile for free.",
+        coin = "PHT",
+        dailyEarning = 9.0,
+        desc = "",
+        iconUrl = "https://pbs.twimg.com/profile_images/1112577903399710720/iSkQ2ur-_400x400.png",
+        linkUrl = "https://play.google.com/store/apps/details?id=com.cloud.earning",
+        views = 100
+    )
     EarnCryptoTheme {
-        Greeting("Android")
+        AppItemView(cryptoApp = app)
     }
 }

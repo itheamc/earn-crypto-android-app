@@ -8,11 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import coil.annotation.ExperimentalCoilApi
 import com.itheamc.earncrypto.model.getDrawerItems
 import com.itheamc.earncrypto.ui.navigations.EarnCryptoNavHost
 import com.itheamc.earncrypto.viewmodel.EarnCryptoViewModel
 import kotlinx.coroutines.CoroutineScope
 
+@ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Composable
 fun EarnCryptoBottomDrawer(
@@ -34,7 +36,8 @@ fun EarnCryptoBottomDrawer(
         EarnCryptoNavHost(
             modifier = modifier,
             navController = navController,
-            startDestination = startDestination
+            startDestination = startDestination,
+            viewModel = viewModel
         )
     }
 }
